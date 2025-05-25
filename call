@@ -1,0 +1,7 @@
+Function.prototype.myCall = function(obj, ...args) {
+  obj = obj || globalThis; // safe for null/undefined
+  obj.fn = this;
+  const result = obj.fn(...args);
+  delete obj.fn;
+  return result;
+}
