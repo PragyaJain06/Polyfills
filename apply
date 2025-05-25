@@ -1,0 +1,13 @@
+Function.prototype.myApply= function(obj,args){
+    obj.fn=this;
+    const result=Array.isArray(args) ? obj.fn(...args) : obj.fn()
+    return result
+}
+
+function sayHi(age) {
+  console.log(this.name, age);
+}
+
+const user = { name: "Pragya" };
+
+sayHi.myApply(user,[25]); // Output: Pragya 25
