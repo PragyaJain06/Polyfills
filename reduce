@@ -1,0 +1,21 @@
+Array.prototype.myReduce=function(cb,initialValue){
+    let startIndex;
+    let acc;
+
+if(arguments.length<2){
+    startIndex=1;
+    acc=this[0]
+}else{
+    acc=initialValue;
+    startIndex=0;
+    
+}
+for(let i=startIndex; i<this.length; i++){
+    acc=cb(acc,this[i],i,this)
+}
+return acc;
+}
+const arr=[1,2,3,4,5]
+// const res= arr.myFilter((item)=>item/2)
+const res=arr.myReduce((acc,curr)=>acc+curr)
+console.log(res) 
